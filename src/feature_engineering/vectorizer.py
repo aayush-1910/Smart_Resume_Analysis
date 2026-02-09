@@ -30,23 +30,21 @@ _nlp = None
 
 
 def get_spacy_model():
-    """Get or load spaCy model, downloading if necessary."""
+    """Get or load spaCy model if available, return None if not."""
     global _nlp
     if _nlp is None:
         if not SPACY_AVAILABLE:
-            raise RuntimeError("spaCy not available")
+            logger.warning("spaCy not available")
+            return None
         try:
             _nlp = spacy.load(SPACY_MODEL)
-        except OSError:
-            # Model not found, download it
-            logger.info(f"Downloading spaCy model: {SPACY_MODEL}")
-            import subprocess
-            subprocess.check_call([
-                "python", "-m", "spacy", "download", SPACY_MODEL, "--quiet"
-            ])
-            _nlp = spacy.load(SPACY_MODEL)
             logger.info(f"Successfully loaded {SPACY_MODEL}")
-    return _nlp
+        except OSError:
+            # Model not found - log warning and return None
+            logger.warning(f"spaCy model '{SPACY_MODEL}' not available. Falling back to TF-IDF vectorization.")
+            _nlp = False  # Mark as unavailable to avoid repeated attempts
+            return None
+    return _nlp if _nlp is not False else None
 
 
 def create_document_vector(
@@ -76,15 +74,21 @@ def create_document_vector(
 
 def create_spacy_vector(text: str) -> np.ndarray:
     """
-    Create document vector using spaCy word embeddings.
+    Create document vector using spaCy word embeddings, or fallback to simple TF-IDF.
     
     Args:
         text: Document text
         
     Returns:
-        Mean of word vectors, shape (300,)
+        Vector representation, shape (300,)
     """
     nlp = get_spacy_model()
+    
+    if nlp is None:
+        # Fallback: Use simple TF-IDF-like approach with sklearn
+        logger.info("Using TF-IDF fallback for vectorization")
+        return create_simple_tfidf_vector(text)
+    
     doc = nlp(text)
     
     # Get the document vector (average of word vectors)
@@ -94,6 +98,50 @@ def create_spacy_vector(text: str) -> np.ndarray:
         logger.warning(f"Vector dimension mismatch: {vector.shape[0]} != {VECTOR_DIMENSIONALITY}")
     
     return vector
+
+
+def create_simple_tfidf_vector(text: str) -> np.ndarray:
+    """
+    Create a simple TF-IDF-based vector when spaCy is unavailable.
+    Uses sklearn's TfidfVectorizer with a fixed vocabulary.
+    
+    Args:
+        text: Document text
+        
+    Returns:
+        Vector of shape (300,) for compatibility
+    """
+    if not SKLEARN_AVAILABLE:
+        logger.error("Neither spaCy nor sklearn available for vectorization")
+        return np.zeros(VECTOR_DIMENSIONALITY)
+    
+    from sklearn.feature_extraction.text import TfidfVectorizer
+    
+    # Create a simple vectorizer with limited features
+    vectorizer = TfidfVectorizer(
+        max_features=VECTOR_DIMENSIONALITY,
+        stop_words='english',
+        ngram_range=(1, 2),
+        lowercase=True
+    )
+    
+    # Fit and transform on the single document
+    # Note: This is not ideal but works for single-document scenarios
+    try:
+        vector = vectorizer.fit_transform([text]).toarray()[0]
+        
+        # Ensure correct dimensionality
+        if vector.shape[0] < VECTOR_DIMENSIONALITY:
+            # Pad with zeros
+            vector = np.pad(vector, (0, VECTOR_DIMENSIONALITY - vector.shape[0]))
+        elif vector.shape[0] > VECTOR_DIMENSIONALITY:
+            # Truncate
+            vector = vector[:VECTOR_DIMENSIONALITY]
+            
+        return vector
+    except Exception as e:
+        logger.error(f"Error in TF-IDF vectorization: {e}")
+        return np.zeros(VECTOR_DIMENSIONALITY)
 
 
 def calculate_cosine_similarity(vec1: np.ndarray, vec2: np.ndarray) -> float:

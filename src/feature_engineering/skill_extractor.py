@@ -25,24 +25,21 @@ _nlp = None
 
 
 def load_spacy_model():
-    """Load spaCy model (singleton pattern), downloading if necessary."""
+    """Load spaCy model if available, return None if not."""
     global _nlp
     if _nlp is None:
         if not SPACY_AVAILABLE:
-            raise RuntimeError("SPACY_MODEL_NOT_LOADED: spaCy not installed")
+            logger.warning("spaCy not installed")
+            return None
         try:
             _nlp = spacy.load(SPACY_MODEL)
             logger.info(f"Loaded spaCy model: {SPACY_MODEL}")
         except OSError:
-            # Model not found, download it
-            logger.info(f"Model '{SPACY_MODEL}' not found. Downloading...")
-            import subprocess
-            subprocess.check_call([
-                "python", "-m", "spacy", "download", SPACY_MODEL, "--quiet"
-            ])
-            _nlp = spacy.load(SPACY_MODEL)
-            logger.info(f"Successfully downloaded and loaded {SPACY_MODEL}")
-    return _nlp
+            # Model not found - skill extraction will work without NLP features
+            logger.warning(f"spaCy model '{SPACY_MODEL}' not available. NLP-based skill extraction disabled.")
+            _nlp = False  # Mark as unavailable
+            return None
+    return _nlp if _nlp is not False else None
 
 
 def load_skills_taxonomy() -> Dict[str, List[str]]:
@@ -182,9 +179,14 @@ def extract_skills_with_nlp(text: str) -> List[Dict[str, Any]]:
         text: Resume text
         
     Returns:
-        List of potential skill candidates
+        List of potential skill candidates (empty if spaCy unavailable)
     """
     nlp = load_spacy_model()
+    
+    if nlp is None:
+        logger.info("spaCy model not available, skipping NLP-based skill extraction")
+        return []
+    
     doc = nlp(text)
     
     candidates = []
