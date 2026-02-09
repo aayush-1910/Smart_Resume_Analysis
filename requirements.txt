@@ -28,5 +28,5 @@ pytest-cov>=4.1.0
 python-dotenv>=1.0.0
 tqdm>=4.66.1
 
-# Note: After installing, download spaCy model:
-# python -m spacy download en_core_web_md
+# Direct dependency for spaCy model
+https://github.com/explosion/spacy-models/releases/download/en_core_web_md-3.7.1/en_core_web_md-3.7.1.tar.gz
