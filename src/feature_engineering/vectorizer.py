@@ -30,12 +30,22 @@ _nlp = None
 
 
 def get_spacy_model():
-    """Get or load spaCy model."""
+    """Get or load spaCy model, downloading if necessary."""
     global _nlp
     if _nlp is None:
         if not SPACY_AVAILABLE:
             raise RuntimeError("spaCy not available")
-        _nlp = spacy.load(SPACY_MODEL)
+        try:
+            _nlp = spacy.load(SPACY_MODEL)
+        except OSError:
+            # Model not found, download it
+            logger.info(f"Downloading spaCy model: {SPACY_MODEL}")
+            import subprocess
+            subprocess.check_call([
+                "python", "-m", "spacy", "download", SPACY_MODEL, "--quiet"
+            ])
+            _nlp = spacy.load(SPACY_MODEL)
+            logger.info(f"Successfully loaded {SPACY_MODEL}")
     return _nlp
 
 

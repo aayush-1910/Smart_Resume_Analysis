@@ -25,7 +25,7 @@ _nlp = None
 
 
 def load_spacy_model():
-    """Load spaCy model (singleton pattern)."""
+    """Load spaCy model (singleton pattern), downloading if necessary."""
     global _nlp
     if _nlp is None:
         if not SPACY_AVAILABLE:
@@ -34,7 +34,14 @@ def load_spacy_model():
             _nlp = spacy.load(SPACY_MODEL)
             logger.info(f"Loaded spaCy model: {SPACY_MODEL}")
         except OSError:
-            raise RuntimeError(f"SPACY_MODEL_NOT_LOADED: Model '{SPACY_MODEL}' not found. Run: python -m spacy download {SPACY_MODEL}")
+            # Model not found, download it
+            logger.info(f"Model '{SPACY_MODEL}' not found. Downloading...")
+            import subprocess
+            subprocess.check_call([
+                "python", "-m", "spacy", "download", SPACY_MODEL, "--quiet"
+            ])
+            _nlp = spacy.load(SPACY_MODEL)
+            logger.info(f"Successfully downloaded and loaded {SPACY_MODEL}")
     return _nlp
 
 
