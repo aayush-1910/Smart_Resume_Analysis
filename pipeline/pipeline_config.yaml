@@ -1,0 +1,35 @@
+# Pipeline Configuration
+
+# Processing Settings
+extraction_method: pdfplumber  # or pypdf2
+fallback_method: pypdf2
+
+# Scoring Weights
+weights:
+  skill_match: 0.5
+  semantic_similarity: 0.5
+
+# Skill Importance
+skill_importance:
+  critical: 1.0
+  preferred: 0.6
+  nice-to-have: 0.3
+
+# Match Thresholds
+thresholds:
+  strong_match: 0.75
+  good_match: 0.55
+  weak_match: 0.35
+
+# Processing Limits
+limits:
+  max_file_size_mb: 5
+  max_pages: 10
+  max_text_length: 50000
+  timeout_seconds: 60
+
+# Output Settings
+output:
+  include_explanation: true
+  include_skill_details: true
+  include_vector: false

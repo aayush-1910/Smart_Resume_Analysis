@@ -1,0 +1,1648 @@
+{
+    "Python": [
+        {
+            "title": "CS50's Introduction to Programming with Python",
+            "provider": "Harvard (edX)",
+            "url": "https://cs50.harvard.edu/python",
+            "difficulty": "beginner",
+            "duration": "10 weeks",
+            "cost": "free",
+            "certificate": true,
+            "rating": 4.9
+        },
+        {
+            "title": "Python for Everybody",
+            "provider": "University of Michigan (Coursera)",
+            "url": "https://www.coursera.org/specializations/python",
+            "difficulty": "beginner",
+            "duration": "8 months",
+            "cost": "free to audit",
+            "certificate": true,
+            "rating": 4.8
+        },
+        {
+            "title": "Scientific Computing with Python",
+            "provider": "freeCodeCamp",
+            "url": "https://www.freecodecamp.org/learn/scientific-computing-with-python/",
+            "difficulty": "beginner",
+            "duration": "300 hours",
+            "cost": "free",
+            "certificate": true,
+            "rating": 4.7
+        }
+    ],
+    "JavaScript": [
+        {
+            "title": "JavaScript Algorithms and Data Structures",
+            "provider": "freeCodeCamp",
+            "url": "https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/",
+            "difficulty": "beginner",
+            "duration": "300 hours",
+            "cost": "free",
+            "certificate": true,
+            "rating": 4.8
+        },
+        {
+            "title": "The Complete JavaScript Course",
+            "provider": "Udemy",
+            "url": "https://www.udemy.com/course/the-complete-javascript-course/",
+            "difficulty": "beginner",
+            "duration": "69 hours",
+            "cost": "paid",
+            "certificate": true,
+            "rating": 4.7
+        },
+        {
+            "title": "JavaScript30",
+            "provider": "Wes Bos",
+            "url": "https://javascript30.com/",
+            "difficulty": "intermediate",
+            "duration": "30 days",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.9
+        }
+    ],
+    "Java": [
+        {
+            "title": "Java Programming and Software Engineering Fundamentals",
+            "provider": "Duke University (Coursera)",
+            "url": "https://www.coursera.org/specializations/java-programming",
+            "difficulty": "beginner",
+            "duration": "5 months",
+            "cost": "free to audit",
+            "certificate": true,
+            "rating": 4.6
+        },
+        {
+            "title": "Java Tutorial for Beginners",
+            "provider": "Programming with Mosh (YouTube)",
+            "url": "https://www.youtube.com/watch?v=eIrMbAQSU34",
+            "difficulty": "beginner",
+            "duration": "2.5 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.8
+        }
+    ],
+    "C++": [
+        {
+            "title": "C++ For Programmers",
+            "provider": "Udacity",
+            "url": "https://www.udacity.com/course/c-for-programmers--ud210",
+            "difficulty": "intermediate",
+            "duration": "6 weeks",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.5
+        },
+        {
+            "title": "C++ Tutorial for Beginners",
+            "provider": "freeCodeCamp (YouTube)",
+            "url": "https://www.youtube.com/watch?v=vLnPwxZdW4Y",
+            "difficulty": "beginner",
+            "duration": "4 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.7
+        }
+    ],
+    "TypeScript": [
+        {
+            "title": "TypeScript for JavaScript Programmers",
+            "provider": "Microsoft (TypeScript Handbook)",
+            "url": "https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html",
+            "difficulty": "intermediate",
+            "duration": "self-paced",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.6
+        },
+        {
+            "title": "Understanding TypeScript",
+            "provider": "Udemy",
+            "url": "https://www.udemy.com/course/understanding-typescript/",
+            "difficulty": "intermediate",
+            "duration": "15 hours",
+            "cost": "paid",
+            "certificate": true,
+            "rating": 4.7
+        }
+    ],
+    "Go": [
+        {
+            "title": "Learn Go Programming",
+            "provider": "freeCodeCamp (YouTube)",
+            "url": "https://www.youtube.com/watch?v=YS4e4q9oBaU",
+            "difficulty": "beginner",
+            "duration": "7 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.8
+        },
+        {
+            "title": "A Tour of Go",
+            "provider": "Go Team",
+            "url": "https://go.dev/tour/welcome/1",
+            "difficulty": "beginner",
+            "duration": "self-paced",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.7
+        }
+    ],
+    "Rust": [
+        {
+            "title": "The Rust Programming Language",
+            "provider": "Rust Team",
+            "url": "https://doc.rust-lang.org/book/",
+            "difficulty": "intermediate",
+            "duration": "self-paced",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.9
+        },
+        {
+            "title": "Rust Programming Course",
+            "provider": "freeCodeCamp (YouTube)",
+            "url": "https://www.youtube.com/watch?v=MsocPEZBd-M",
+            "difficulty": "beginner",
+            "duration": "14 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.6
+        }
+    ],
+    "React": [
+        {
+            "title": "React - The Complete Guide",
+            "provider": "Udemy",
+            "url": "https://www.udemy.com/course/react-the-complete-guide-incl-redux/",
+            "difficulty": "beginner",
+            "duration": "48 hours",
+            "cost": "paid",
+            "certificate": true,
+            "rating": 4.7
+        },
+        {
+            "title": "Full Stack Open - React",
+            "provider": "University of Helsinki",
+            "url": "https://fullstackopen.com/en/",
+            "difficulty": "intermediate",
+            "duration": "self-paced",
+            "cost": "free",
+            "certificate": true,
+            "rating": 4.9
+        },
+        {
+            "title": "React Tutorial for Beginners",
+            "provider": "Programming with Mosh (YouTube)",
+            "url": "https://www.youtube.com/watch?v=SqcY0GlETPk",
+            "difficulty": "beginner",
+            "duration": "1 hour",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.8
+        }
+    ],
+    "Angular": [
+        {
+            "title": "Angular - The Complete Guide",
+            "provider": "Udemy",
+            "url": "https://www.udemy.com/course/the-complete-guide-to-angular-2/",
+            "difficulty": "beginner",
+            "duration": "34 hours",
+            "cost": "paid",
+            "certificate": true,
+            "rating": 4.6
+        },
+        {
+            "title": "Angular Tutorial for Beginners",
+            "provider": "freeCodeCamp (YouTube)",
+            "url": "https://www.youtube.com/watch?v=3qBXWUpoPHo",
+            "difficulty": "beginner",
+            "duration": "2 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.5
+        }
+    ],
+    "Vue": [
+        {
+            "title": "Vue.js 3 Tutorial",
+            "provider": "Vue Mastery",
+            "url": "https://www.vuemastery.com/courses/intro-to-vue-3/intro-to-vue3",
+            "difficulty": "beginner",
+            "duration": "1 hour",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.8
+        },
+        {
+            "title": "Vue JS Crash Course",
+            "provider": "Traversy Media (YouTube)",
+            "url": "https://www.youtube.com/watch?v=qZXt1Aom3Cs",
+            "difficulty": "beginner",
+            "duration": "2 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.7
+        }
+    ],
+    "Node.js": [
+        {
+            "title": "The Complete Node.js Developer Course",
+            "provider": "Udemy",
+            "url": "https://www.udemy.com/course/the-complete-nodejs-developer-course-2/",
+            "difficulty": "beginner",
+            "duration": "35 hours",
+            "cost": "paid",
+            "certificate": true,
+            "rating": 4.7
+        },
+        {
+            "title": "Node.js Tutorial for Beginners",
+            "provider": "Programming with Mosh (YouTube)",
+            "url": "https://www.youtube.com/watch?v=TlB_eWDSMt4",
+            "difficulty": "beginner",
+            "duration": "1 hour",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.8
+        },
+        {
+            "title": "Back End Development and APIs",
+            "provider": "freeCodeCamp",
+            "url": "https://www.freecodecamp.org/learn/back-end-development-and-apis/",
+            "difficulty": "intermediate",
+            "duration": "300 hours",
+            "cost": "free",
+            "certificate": true,
+            "rating": 4.7
+        }
+    ],
+    "Django": [
+        {
+            "title": "Django for Everybody",
+            "provider": "University of Michigan (Coursera)",
+            "url": "https://www.coursera.org/specializations/django",
+            "difficulty": "intermediate",
+            "duration": "3 months",
+            "cost": "free to audit",
+            "certificate": true,
+            "rating": 4.7
+        },
+        {
+            "title": "Django Tutorial",
+            "provider": "Django Project",
+            "url": "https://docs.djangoproject.com/en/stable/intro/tutorial01/",
+            "difficulty": "beginner",
+            "duration": "self-paced",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.8
+        }
+    ],
+    "Flask": [
+        {
+            "title": "Flask Mega-Tutorial",
+            "provider": "Miguel Grinberg",
+            "url": "https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world",
+            "difficulty": "intermediate",
+            "duration": "self-paced",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.9
+        },
+        {
+            "title": "Flask Tutorial",
+            "provider": "freeCodeCamp (YouTube)",
+            "url": "https://www.youtube.com/watch?v=Z1RJmh_OqeA",
+            "difficulty": "beginner",
+            "duration": "2 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.6
+        }
+    ],
+    "Machine Learning": [
+        {
+            "title": "Machine Learning Specialization",
+            "provider": "Andrew Ng (Coursera)",
+            "url": "https://www.coursera.org/specializations/machine-learning-introduction",
+            "difficulty": "intermediate",
+            "duration": "3 months",
+            "cost": "free to audit",
+            "certificate": true,
+            "rating": 4.9
+        },
+        {
+            "title": "Introduction to Machine Learning",
+            "provider": "Kaggle",
+            "url": "https://www.kaggle.com/learn/intro-to-machine-learning",
+            "difficulty": "beginner",
+            "duration": "3 hours",
+            "cost": "free",
+            "certificate": true,
+            "rating": 4.6
+        },
+        {
+            "title": "Machine Learning Crash Course",
+            "provider": "Google",
+            "url": "https://developers.google.com/machine-learning/crash-course",
+            "difficulty": "beginner",
+            "duration": "15 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.7
+        }
+    ],
+    "Deep Learning": [
+        {
+            "title": "Deep Learning Specialization",
+            "provider": "Andrew Ng (Coursera)",
+            "url": "https://www.coursera.org/specializations/deep-learning",
+            "difficulty": "intermediate",
+            "duration": "5 months",
+            "cost": "free to audit",
+            "certificate": true,
+            "rating": 4.9
+        },
+        {
+            "title": "Practical Deep Learning for Coders",
+            "provider": "fast.ai",
+            "url": "https://course.fast.ai/",
+            "difficulty": "intermediate",
+            "duration": "7 weeks",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.8
+        }
+    ],
+    "TensorFlow": [
+        {
+            "title": "TensorFlow Developer Certificate",
+            "provider": "DeepLearning.AI (Coursera)",
+            "url": "https://www.coursera.org/professional-certificates/tensorflow-in-practice",
+            "difficulty": "intermediate",
+            "duration": "4 months",
+            "cost": "free to audit",
+            "certificate": true,
+            "rating": 4.7
+        },
+        {
+            "title": "TensorFlow Tutorials",
+            "provider": "TensorFlow",
+            "url": "https://www.tensorflow.org/tutorials",
+            "difficulty": "beginner",
+            "duration": "self-paced",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.6
+        }
+    ],
+    "PyTorch": [
+        {
+            "title": "PyTorch for Deep Learning",
+            "provider": "freeCodeCamp (YouTube)",
+            "url": "https://www.youtube.com/watch?v=V_xro1bcAuA",
+            "difficulty": "intermediate",
+            "duration": "26 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.8
+        },
+        {
+            "title": "PyTorch Tutorials",
+            "provider": "PyTorch",
+            "url": "https://pytorch.org/tutorials/",
+            "difficulty": "intermediate",
+            "duration": "self-paced",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.7
+        }
+    ],
+    "NLP": [
+        {
+            "title": "Natural Language Processing Specialization",
+            "provider": "DeepLearning.AI (Coursera)",
+            "url": "https://www.coursera.org/specializations/natural-language-processing",
+            "difficulty": "intermediate",
+            "duration": "4 months",
+            "cost": "free to audit",
+            "certificate": true,
+            "rating": 4.6
+        },
+        {
+            "title": "Hugging Face NLP Course",
+            "provider": "Hugging Face",
+            "url": "https://huggingface.co/learn/nlp-course",
+            "difficulty": "intermediate",
+            "duration": "self-paced",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.8
+        }
+    ],
+    "Data Analysis": [
+        {
+            "title": "Data Analysis with Python",
+            "provider": "freeCodeCamp",
+            "url": "https://www.freecodecamp.org/learn/data-analysis-with-python/",
+            "difficulty": "intermediate",
+            "duration": "300 hours",
+            "cost": "free",
+            "certificate": true,
+            "rating": 4.7
+        },
+        {
+            "title": "Google Data Analytics Certificate",
+            "provider": "Google (Coursera)",
+            "url": "https://www.coursera.org/professional-certificates/google-data-analytics",
+            "difficulty": "beginner",
+            "duration": "6 months",
+            "cost": "free to audit",
+            "certificate": true,
+            "rating": 4.8
+        }
+    ],
+    "SQL": [
+        {
+            "title": "SQL for Data Science",
+            "provider": "UC Davis (Coursera)",
+            "url": "https://www.coursera.org/learn/sql-for-data-science",
+            "difficulty": "beginner",
+            "duration": "4 weeks",
+            "cost": "free to audit",
+            "certificate": true,
+            "rating": 4.6
+        },
+        {
+            "title": "SQL Tutorial",
+            "provider": "W3Schools",
+            "url": "https://www.w3schools.com/sql/",
+            "difficulty": "beginner",
+            "duration": "self-paced",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.5
+        },
+        {
+            "title": "Intro to SQL",
+            "provider": "Kaggle",
+            "url": "https://www.kaggle.com/learn/intro-to-sql",
+            "difficulty": "beginner",
+            "duration": "3 hours",
+            "cost": "free",
+            "certificate": true,
+            "rating": 4.7
+        }
+    ],
+    "MongoDB": [
+        {
+            "title": "MongoDB University",
+            "provider": "MongoDB",
+            "url": "https://learn.mongodb.com/",
+            "difficulty": "beginner",
+            "duration": "self-paced",
+            "cost": "free",
+            "certificate": true,
+            "rating": 4.7
+        },
+        {
+            "title": "MongoDB Crash Course",
+            "provider": "Traversy Media (YouTube)",
+            "url": "https://www.youtube.com/watch?v=-56x56UppqQ",
+            "difficulty": "beginner",
+            "duration": "1.5 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.6
+        }
+    ],
+    "PostgreSQL": [
+        {
+            "title": "PostgreSQL Tutorial",
+            "provider": "PostgreSQL Tutorial",
+            "url": "https://www.postgresqltutorial.com/",
+            "difficulty": "beginner",
+            "duration": "self-paced",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.6
+        },
+        {
+            "title": "Learn PostgreSQL Tutorial",
+            "provider": "freeCodeCamp (YouTube)",
+            "url": "https://www.youtube.com/watch?v=qw--VYLpxG4",
+            "difficulty": "beginner",
+            "duration": "4 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.7
+        }
+    ],
+    "AWS": [
+        {
+            "title": "AWS Cloud Practitioner Essentials",
+            "provider": "AWS",
+            "url": "https://explore.skillbuilder.aws/learn/course/134/aws-cloud-practitioner-essentials",
+            "difficulty": "beginner",
+            "duration": "6 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.7
+        },
+        {
+            "title": "AWS Certified Solutions Architect",
+            "provider": "freeCodeCamp (YouTube)",
+            "url": "https://www.youtube.com/watch?v=Ia-UEYYR44s",
+            "difficulty": "intermediate",
+            "duration": "10 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.8
+        }
+    ],
+    "Azure": [
+        {
+            "title": "Azure Fundamentals",
+            "provider": "Microsoft Learn",
+            "url": "https://learn.microsoft.com/en-us/certifications/azure-fundamentals/",
+            "difficulty": "beginner",
+            "duration": "10 hours",
+            "cost": "free",
+            "certificate": true,
+            "rating": 4.7
+        },
+        {
+            "title": "AZ-900 Azure Fundamentals",
+            "provider": "freeCodeCamp (YouTube)",
+            "url": "https://www.youtube.com/watch?v=NKEFWyqJ5XA",
+            "difficulty": "beginner",
+            "duration": "3 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.6
+        }
+    ],
+    "Google Cloud": [
+        {
+            "title": "Google Cloud Fundamentals",
+            "provider": "Google Cloud (Coursera)",
+            "url": "https://www.coursera.org/learn/gcp-fundamentals",
+            "difficulty": "beginner",
+            "duration": "1 week",
+            "cost": "free to audit",
+            "certificate": true,
+            "rating": 4.6
+        },
+        {
+            "title": "Google Cloud Skills Boost",
+            "provider": "Google Cloud",
+            "url": "https://www.cloudskillsboost.google/",
+            "difficulty": "beginner",
+            "duration": "self-paced",
+            "cost": "free",
+            "certificate": true,
+            "rating": 4.7
+        }
+    ],
+    "Docker": [
+        {
+            "title": "Docker Tutorial for Beginners",
+            "provider": "TechWorld with Nana (YouTube)",
+            "url": "https://www.youtube.com/watch?v=3c-iBn73dDE",
+            "difficulty": "beginner",
+            "duration": "3 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.9
+        },
+        {
+            "title": "Docker Mastery",
+            "provider": "Udemy",
+            "url": "https://www.udemy.com/course/docker-mastery/",
+            "difficulty": "beginner",
+            "duration": "20 hours",
+            "cost": "paid",
+            "certificate": true,
+            "rating": 4.7
+        }
+    ],
+    "Kubernetes": [
+        {
+            "title": "Kubernetes Tutorial for Beginners",
+            "provider": "TechWorld with Nana (YouTube)",
+            "url": "https://www.youtube.com/watch?v=X48VuDVv0do",
+            "difficulty": "intermediate",
+            "duration": "4 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.9
+        },
+        {
+            "title": "Certified Kubernetes Administrator (CKA)",
+            "provider": "KodeKloud",
+            "url": "https://kodekloud.com/courses/certified-kubernetes-administrator-cka/",
+            "difficulty": "advanced",
+            "duration": "30 hours",
+            "cost": "paid",
+            "certificate": true,
+            "rating": 4.8
+        }
+    ],
+    "Git": [
+        {
+            "title": "Git and GitHub for Beginners",
+            "provider": "freeCodeCamp (YouTube)",
+            "url": "https://www.youtube.com/watch?v=RGOj5yH7evk",
+            "difficulty": "beginner",
+            "duration": "1 hour",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.8
+        },
+        {
+            "title": "Introduction to Git and GitHub",
+            "provider": "Google (Coursera)",
+            "url": "https://www.coursera.org/learn/introduction-git-github",
+            "difficulty": "beginner",
+            "duration": "4 weeks",
+            "cost": "free to audit",
+            "certificate": true,
+            "rating": 4.7
+        }
+    ],
+    "CI/CD": [
+        {
+            "title": "Introduction to DevOps",
+            "provider": "IBM (Coursera)",
+            "url": "https://www.coursera.org/learn/intro-to-devops",
+            "difficulty": "beginner",
+            "duration": "3 weeks",
+            "cost": "free to audit",
+            "certificate": true,
+            "rating": 4.6
+        },
+        {
+            "title": "GitHub Actions Tutorial",
+            "provider": "TechWorld with Nana (YouTube)",
+            "url": "https://www.youtube.com/watch?v=R8_veQiYBjI",
+            "difficulty": "intermediate",
+            "duration": "1 hour",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.7
+        }
+    ],
+    "Linux": [
+        {
+            "title": "Introduction to Linux",
+            "provider": "Linux Foundation (edX)",
+            "url": "https://www.edx.org/course/introduction-to-linux",
+            "difficulty": "beginner",
+            "duration": "14 weeks",
+            "cost": "free",
+            "certificate": true,
+            "rating": 4.7
+        },
+        {
+            "title": "Linux Command Line Basics",
+            "provider": "freeCodeCamp (YouTube)",
+            "url": "https://www.youtube.com/watch?v=ZtqBQ68cfJc",
+            "difficulty": "beginner",
+            "duration": "5 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.8
+        }
+    ],
+    "HTML": [
+        {
+            "title": "Responsive Web Design",
+            "provider": "freeCodeCamp",
+            "url": "https://www.freecodecamp.org/learn/2022/responsive-web-design/",
+            "difficulty": "beginner",
+            "duration": "300 hours",
+            "cost": "free",
+            "certificate": true,
+            "rating": 4.8
+        },
+        {
+            "title": "HTML Full Course",
+            "provider": "freeCodeCamp (YouTube)",
+            "url": "https://www.youtube.com/watch?v=kUMe1FH4CHE",
+            "difficulty": "beginner",
+            "duration": "2 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.7
+        }
+    ],
+    "CSS": [
+        {
+            "title": "Responsive Web Design",
+            "provider": "freeCodeCamp",
+            "url": "https://www.freecodecamp.org/learn/2022/responsive-web-design/",
+            "difficulty": "beginner",
+            "duration": "300 hours",
+            "cost": "free",
+            "certificate": true,
+            "rating": 4.8
+        },
+        {
+            "title": "CSS Tutorial - Zero to Hero",
+            "provider": "freeCodeCamp (YouTube)",
+            "url": "https://www.youtube.com/watch?v=1Rs2ND1ryYc",
+            "difficulty": "beginner",
+            "duration": "6 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.7
+        }
+    ],
+    "pandas": [
+        {
+            "title": "Pandas",
+            "provider": "Kaggle",
+            "url": "https://www.kaggle.com/learn/pandas",
+            "difficulty": "beginner",
+            "duration": "4 hours",
+            "cost": "free",
+            "certificate": true,
+            "rating": 4.7
+        },
+        {
+            "title": "Data Analysis with Python",
+            "provider": "freeCodeCamp",
+            "url": "https://www.freecodecamp.org/learn/data-analysis-with-python/",
+            "difficulty": "intermediate",
+            "duration": "300 hours",
+            "cost": "free",
+            "certificate": true,
+            "rating": 4.7
+        }
+    ],
+    "numpy": [
+        {
+            "title": "NumPy Tutorial",
+            "provider": "freeCodeCamp (YouTube)",
+            "url": "https://www.youtube.com/watch?v=QUT1VHiLmmI",
+            "difficulty": "beginner",
+            "duration": "1 hour",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.6
+        },
+        {
+            "title": "Python NumPy Tutorial",
+            "provider": "NumPy",
+            "url": "https://numpy.org/doc/stable/user/absolute_beginners.html",
+            "difficulty": "beginner",
+            "duration": "self-paced",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.5
+        }
+    ],
+    "scikit-learn": [
+        {
+            "title": "Machine Learning with scikit-learn",
+            "provider": "DataCamp",
+            "url": "https://www.datacamp.com/courses/supervised-learning-with-scikit-learn",
+            "difficulty": "intermediate",
+            "duration": "4 hours",
+            "cost": "paid",
+            "certificate": true,
+            "rating": 4.6
+        },
+        {
+            "title": "Scikit-Learn Course",
+            "provider": "freeCodeCamp (YouTube)",
+            "url": "https://www.youtube.com/watch?v=0B5eIE_1vpU",
+            "difficulty": "intermediate",
+            "duration": "3 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.7
+        }
+    ],
+    "REST API": [
+        {
+            "title": "REST APIs with Flask and Python",
+            "provider": "Udemy",
+            "url": "https://www.udemy.com/course/rest-api-flask-and-python/",
+            "difficulty": "intermediate",
+            "duration": "17 hours",
+            "cost": "paid",
+            "certificate": true,
+            "rating": 4.6
+        },
+        {
+            "title": "What is REST API?",
+            "provider": "freeCodeCamp (YouTube)",
+            "url": "https://www.youtube.com/watch?v=lsMQRaeKNDk",
+            "difficulty": "beginner",
+            "duration": "30 minutes",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.5
+        }
+    ],
+    "GraphQL": [
+        {
+            "title": "GraphQL Full Course",
+            "provider": "freeCodeCamp (YouTube)",
+            "url": "https://www.youtube.com/watch?v=ed8SzALpx1Q",
+            "difficulty": "intermediate",
+            "duration": "4 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.6
+        },
+        {
+            "title": "How to GraphQL",
+            "provider": "Prisma",
+            "url": "https://www.howtographql.com/",
+            "difficulty": "beginner",
+            "duration": "self-paced",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.7
+        }
+    ],
+    "Agile": [
+        {
+            "title": "Agile with Atlassian Jira",
+            "provider": "Atlassian (Coursera)",
+            "url": "https://www.coursera.org/learn/agile-atlassian-jira",
+            "difficulty": "beginner",
+            "duration": "4 weeks",
+            "cost": "free to audit",
+            "certificate": true,
+            "rating": 4.7
+        },
+        {
+            "title": "Introduction to Scrum",
+            "provider": "LinkedIn Learning",
+            "url": "https://www.linkedin.com/learning/scrum-the-basics",
+            "difficulty": "beginner",
+            "duration": "1 hour",
+            "cost": "free trial",
+            "certificate": true,
+            "rating": 4.5
+        }
+    ],
+    "Scrum": [
+        {
+            "title": "Scrum Certification Prep",
+            "provider": "LearnQuest (Coursera)",
+            "url": "https://www.coursera.org/learn/scrum-master-certification",
+            "difficulty": "beginner",
+            "duration": "4 weeks",
+            "cost": "free to audit",
+            "certificate": true,
+            "rating": 4.6
+        },
+        {
+            "title": "Scrum Guide",
+            "provider": "Scrum.org",
+            "url": "https://scrumguides.org/",
+            "difficulty": "beginner",
+            "duration": "1 hour",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.8
+        }
+    ],
+    "Communication": [
+        {
+            "title": "Effective Communication",
+            "provider": "University of Colorado (Coursera)",
+            "url": "https://www.coursera.org/learn/effective-communication",
+            "difficulty": "beginner",
+            "duration": "4 weeks",
+            "cost": "free to audit",
+            "certificate": true,
+            "rating": 4.7
+        },
+        {
+            "title": "Business Communication",
+            "provider": "University of British Columbia (edX)",
+            "url": "https://www.edx.org/course/business-communications",
+            "difficulty": "beginner",
+            "duration": "4 weeks",
+            "cost": "free",
+            "certificate": true,
+            "rating": 4.5
+        }
+    ],
+    "Leadership": [
+        {
+            "title": "Foundations of Leadership",
+            "provider": "IESE Business School (Coursera)",
+            "url": "https://www.coursera.org/specializations/foundations-of-leadership",
+            "difficulty": "beginner",
+            "duration": "5 months",
+            "cost": "free to audit",
+            "certificate": true,
+            "rating": 4.7
+        },
+        {
+            "title": "Developing Leadership Skills",
+            "provider": "LinkedIn Learning",
+            "url": "https://www.linkedin.com/learning/developing-your-leadership-philosophy",
+            "difficulty": "beginner",
+            "duration": "1 hour",
+            "cost": "free trial",
+            "certificate": true,
+            "rating": 4.6
+        }
+    ],
+    "Teamwork": [
+        {
+            "title": "Teamwork Skills",
+            "provider": "University of Colorado (Coursera)",
+            "url": "https://www.coursera.org/learn/teamwork-skills",
+            "difficulty": "beginner",
+            "duration": "4 weeks",
+            "cost": "free to audit",
+            "certificate": true,
+            "rating": 4.6
+        }
+    ],
+    "Problem Solving": [
+        {
+            "title": "Creative Problem Solving",
+            "provider": "University of Minnesota (Coursera)",
+            "url": "https://www.coursera.org/learn/creative-problem-solving",
+            "difficulty": "beginner",
+            "duration": "4 weeks",
+            "cost": "free to audit",
+            "certificate": true,
+            "rating": 4.7
+        }
+    ],
+    "Time Management": [
+        {
+            "title": "Work Smarter, Not Harder",
+            "provider": "University of California (Coursera)",
+            "url": "https://www.coursera.org/learn/work-smarter-not-harder",
+            "difficulty": "beginner",
+            "duration": "4 weeks",
+            "cost": "free to audit",
+            "certificate": true,
+            "rating": 4.5
+        }
+    ],
+    "Critical Thinking": [
+        {
+            "title": "Critical Thinking Skills for Professionals",
+            "provider": "University of California (edX)",
+            "url": "https://www.edx.org/course/critical-thinking-skills-for-the-professional",
+            "difficulty": "beginner",
+            "duration": "6 weeks",
+            "cost": "free",
+            "certificate": true,
+            "rating": 4.6
+        }
+    ],
+    "Project Management": [
+        {
+            "title": "Google Project Management Certificate",
+            "provider": "Google (Coursera)",
+            "url": "https://www.coursera.org/professional-certificates/google-project-management",
+            "difficulty": "beginner",
+            "duration": "6 months",
+            "cost": "free to audit",
+            "certificate": true,
+            "rating": 4.8
+        },
+        {
+            "title": "Project Management Principles",
+            "provider": "LinkedIn Learning",
+            "url": "https://www.linkedin.com/learning/project-management-foundations",
+            "difficulty": "beginner",
+            "duration": "3 hours",
+            "cost": "free trial",
+            "certificate": true,
+            "rating": 4.7
+        }
+    ],
+    "UX Design": [
+        {
+            "title": "Google UX Design Certificate",
+            "provider": "Google (Coursera)",
+            "url": "https://www.coursera.org/professional-certificates/google-ux-design",
+            "difficulty": "beginner",
+            "duration": "6 months",
+            "cost": "free to audit",
+            "certificate": true,
+            "rating": 4.8
+        },
+        {
+            "title": "UX Design Fundamentals",
+            "provider": "freeCodeCamp (YouTube)",
+            "url": "https://www.youtube.com/watch?v=uL2ZB7XXIgg",
+            "difficulty": "beginner",
+            "duration": "2 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.6
+        }
+    ],
+    "Figma": [
+        {
+            "title": "Figma UI UX Design Tutorial",
+            "provider": "freeCodeCamp (YouTube)",
+            "url": "https://www.youtube.com/watch?v=jwCmIBJ8Jtc",
+            "difficulty": "beginner",
+            "duration": "3 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.8
+        },
+        {
+            "title": "Figma Tutorial for Beginners",
+            "provider": "Figma",
+            "url": "https://www.figma.com/resources/learn-design/",
+            "difficulty": "beginner",
+            "duration": "self-paced",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.7
+        }
+    ],
+    "Digital Marketing": [
+        {
+            "title": "Google Digital Marketing Certificate",
+            "provider": "Google (Coursera)",
+            "url": "https://www.coursera.org/professional-certificates/google-digital-marketing-ecommerce",
+            "difficulty": "beginner",
+            "duration": "6 months",
+            "cost": "free to audit",
+            "certificate": true,
+            "rating": 4.8
+        },
+        {
+            "title": "Digital Marketing Full Course",
+            "provider": "Simplilearn (YouTube)",
+            "url": "https://www.youtube.com/watch?v=nU-IIXBWlS4",
+            "difficulty": "beginner",
+            "duration": "10 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.5
+        }
+    ],
+    "SEO": [
+        {
+            "title": "SEO Training Course",
+            "provider": "Moz",
+            "url": "https://moz.com/beginners-guide-to-seo",
+            "difficulty": "beginner",
+            "duration": "self-paced",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.7
+        },
+        {
+            "title": "SEO Full Course",
+            "provider": "Ahrefs (YouTube)",
+            "url": "https://www.youtube.com/watch?v=xsVTqzratPs",
+            "difficulty": "beginner",
+            "duration": "2 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.8
+        }
+    ],
+    "Cybersecurity": [
+        {
+            "title": "Google Cybersecurity Certificate",
+            "provider": "Google (Coursera)",
+            "url": "https://www.coursera.org/professional-certificates/google-cybersecurity",
+            "difficulty": "beginner",
+            "duration": "6 months",
+            "cost": "free to audit",
+            "certificate": true,
+            "rating": 4.8
+        },
+        {
+            "title": "Introduction to Cybersecurity",
+            "provider": "Cisco Networking Academy",
+            "url": "https://www.netacad.com/courses/cybersecurity/introduction-cybersecurity",
+            "difficulty": "beginner",
+            "duration": "15 hours",
+            "cost": "free",
+            "certificate": true,
+            "rating": 4.6
+        }
+    ],
+    "Data Science": [
+        {
+            "title": "IBM Data Science Professional Certificate",
+            "provider": "IBM (Coursera)",
+            "url": "https://www.coursera.org/professional-certificates/ibm-data-science",
+            "difficulty": "beginner",
+            "duration": "11 months",
+            "cost": "free to audit",
+            "certificate": true,
+            "rating": 4.6
+        },
+        {
+            "title": "Data Science Full Course",
+            "provider": "freeCodeCamp (YouTube)",
+            "url": "https://www.youtube.com/watch?v=ua-CiDNNj30",
+            "difficulty": "beginner",
+            "duration": "12 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.7
+        }
+    ],
+    "Power BI": [
+        {
+            "title": "Microsoft Power BI Data Analyst",
+            "provider": "Microsoft (Coursera)",
+            "url": "https://www.coursera.org/professional-certificates/microsoft-power-bi-data-analyst",
+            "difficulty": "intermediate",
+            "duration": "5 months",
+            "cost": "free to audit",
+            "certificate": true,
+            "rating": 4.6
+        },
+        {
+            "title": "Power BI Full Course",
+            "provider": "freeCodeCamp (YouTube)",
+            "url": "https://www.youtube.com/watch?v=3u7MQz1EyPY",
+            "difficulty": "beginner",
+            "duration": "4 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.7
+        }
+    ],
+    "Tableau": [
+        {
+            "title": "Data Visualization with Tableau",
+            "provider": "UC Davis (Coursera)",
+            "url": "https://www.coursera.org/specializations/data-visualization",
+            "difficulty": "beginner",
+            "duration": "5 months",
+            "cost": "free to audit",
+            "certificate": true,
+            "rating": 4.6
+        },
+        {
+            "title": "Tableau Tutorial for Beginners",
+            "provider": "freeCodeCamp (YouTube)",
+            "url": "https://www.youtube.com/watch?v=aHaOIvR00So",
+            "difficulty": "beginner",
+            "duration": "4 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.5
+        }
+    ],
+    "Excel": [
+        {
+            "title": "Excel Skills for Business",
+            "provider": "Macquarie University (Coursera)",
+            "url": "https://www.coursera.org/specializations/excel",
+            "difficulty": "beginner",
+            "duration": "6 months",
+            "cost": "free to audit",
+            "certificate": true,
+            "rating": 4.8
+        },
+        {
+            "title": "Excel Tutorial for Beginners",
+            "provider": "freeCodeCamp (YouTube)",
+            "url": "https://www.youtube.com/watch?v=Vl0H-qTclOg",
+            "difficulty": "beginner",
+            "duration": "3 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.7
+        }
+    ],
+    "Spring Boot": [
+        {
+            "title": "Spring Boot Tutorial",
+            "provider": "Amigoscode (YouTube)",
+            "url": "https://www.youtube.com/watch?v=9SGDpanrc8U",
+            "difficulty": "intermediate",
+            "duration": "3 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.8
+        },
+        {
+            "title": "Spring Framework",
+            "provider": "Spring.io",
+            "url": "https://spring.io/guides",
+            "difficulty": "intermediate",
+            "duration": "self-paced",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.7
+        }
+    ],
+    "Next.js": [
+        {
+            "title": "Next.js Tutorial",
+            "provider": "Next.js",
+            "url": "https://nextjs.org/learn",
+            "difficulty": "intermediate",
+            "duration": "self-paced",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.9
+        },
+        {
+            "title": "Next.js Full Tutorial",
+            "provider": "freeCodeCamp (YouTube)",
+            "url": "https://www.youtube.com/watch?v=9P8mASSREYM",
+            "difficulty": "intermediate",
+            "duration": "6 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.7
+        }
+    ],
+    "FastAPI": [
+        {
+            "title": "FastAPI Tutorial",
+            "provider": "FastAPI",
+            "url": "https://fastapi.tiangolo.com/tutorial/",
+            "difficulty": "intermediate",
+            "duration": "self-paced",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.8
+        },
+        {
+            "title": "FastAPI Full Course",
+            "provider": "freeCodeCamp (YouTube)",
+            "url": "https://www.youtube.com/watch?v=7t2alSnE2-I",
+            "difficulty": "intermediate",
+            "duration": "6 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.7
+        }
+    ],
+    "Redis": [
+        {
+            "title": "Redis University",
+            "provider": "Redis",
+            "url": "https://university.redis.com/",
+            "difficulty": "beginner",
+            "duration": "self-paced",
+            "cost": "free",
+            "certificate": true,
+            "rating": 4.7
+        },
+        {
+            "title": "Redis Crash Course",
+            "provider": "Traversy Media (YouTube)",
+            "url": "https://www.youtube.com/watch?v=jgpVdJB2sKQ",
+            "difficulty": "beginner",
+            "duration": "30 minutes",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.6
+        }
+    ],
+    "Elasticsearch": [
+        {
+            "title": "Elasticsearch Fundamentals",
+            "provider": "Elastic",
+            "url": "https://www.elastic.co/training/elasticsearch-fundamentals",
+            "difficulty": "beginner",
+            "duration": "self-paced",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.5
+        }
+    ],
+    "Apache Spark": [
+        {
+            "title": "Apache Spark with Python",
+            "provider": "freeCodeCamp (YouTube)",
+            "url": "https://www.youtube.com/watch?v=_C8kWso4ne4",
+            "difficulty": "intermediate",
+            "duration": "3 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.6
+        },
+        {
+            "title": "Big Data with PySpark",
+            "provider": "DataCamp",
+            "url": "https://www.datacamp.com/courses/introduction-to-pyspark",
+            "difficulty": "intermediate",
+            "duration": "4 hours",
+            "cost": "paid",
+            "certificate": true,
+            "rating": 4.5
+        }
+    ],
+    "Hadoop": [
+        {
+            "title": "Hadoop Tutorial for Beginners",
+            "provider": "Edureka (YouTube)",
+            "url": "https://www.youtube.com/watch?v=mafw2-CVYnA",
+            "difficulty": "intermediate",
+            "duration": "3 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.5
+        }
+    ],
+    "Kafka": [
+        {
+            "title": "Apache Kafka for Beginners",
+            "provider": "Conduktor (YouTube)",
+            "url": "https://www.youtube.com/watch?v=qu96DFXtbG4",
+            "difficulty": "intermediate",
+            "duration": "2 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.7
+        }
+    ],
+    "Terraform": [
+        {
+            "title": "Terraform Tutorial",
+            "provider": "freeCodeCamp (YouTube)",
+            "url": "https://www.youtube.com/watch?v=SLB_c_ayRMo",
+            "difficulty": "intermediate",
+            "duration": "2 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.7
+        },
+        {
+            "title": "HashiCorp Learn",
+            "provider": "HashiCorp",
+            "url": "https://learn.hashicorp.com/terraform",
+            "difficulty": "beginner",
+            "duration": "self-paced",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.8
+        }
+    ],
+    "Jenkins": [
+        {
+            "title": "Jenkins Tutorial for Beginners",
+            "provider": "TechWorld with Nana (YouTube)",
+            "url": "https://www.youtube.com/watch?v=7KCS70sCoK0",
+            "difficulty": "beginner",
+            "duration": "1 hour",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.8
+        }
+    ],
+    "React Native": [
+        {
+            "title": "React Native Tutorial",
+            "provider": "Programming with Mosh (YouTube)",
+            "url": "https://www.youtube.com/watch?v=0-S5a0eXPoc",
+            "difficulty": "intermediate",
+            "duration": "2 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.7
+        },
+        {
+            "title": "React Native Docs",
+            "provider": "React Native",
+            "url": "https://reactnative.dev/docs/getting-started",
+            "difficulty": "intermediate",
+            "duration": "self-paced",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.6
+        }
+    ],
+    "Flutter": [
+        {
+            "title": "Flutter Course for Beginners",
+            "provider": "freeCodeCamp (YouTube)",
+            "url": "https://www.youtube.com/watch?v=VPvVD8t02U8",
+            "difficulty": "beginner",
+            "duration": "37 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.8
+        },
+        {
+            "title": "Flutter Documentation",
+            "provider": "Flutter",
+            "url": "https://flutter.dev/docs",
+            "difficulty": "beginner",
+            "duration": "self-paced",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.7
+        }
+    ],
+    "Swift": [
+        {
+            "title": "Swift Programming Tutorial",
+            "provider": "Apple",
+            "url": "https://developer.apple.com/swift/",
+            "difficulty": "beginner",
+            "duration": "self-paced",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.7
+        },
+        {
+            "title": "100 Days of Swift",
+            "provider": "Hacking with Swift",
+            "url": "https://www.hackingwithswift.com/100",
+            "difficulty": "beginner",
+            "duration": "100 days",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.9
+        }
+    ],
+    "Kotlin": [
+        {
+            "title": "Kotlin Programming Language",
+            "provider": "JetBrains (Coursera)",
+            "url": "https://www.coursera.org/learn/kotlin-for-java-developers",
+            "difficulty": "intermediate",
+            "duration": "5 weeks",
+            "cost": "free to audit",
+            "certificate": true,
+            "rating": 4.7
+        },
+        {
+            "title": "Kotlin Tutorial for Beginners",
+            "provider": "freeCodeCamp (YouTube)",
+            "url": "https://www.youtube.com/watch?v=F9UC9DY-vIU",
+            "difficulty": "beginner",
+            "duration": "5 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.6
+        }
+    ],
+    "Ruby": [
+        {
+            "title": "Ruby Programming Language",
+            "provider": "freeCodeCamp (YouTube)",
+            "url": "https://www.youtube.com/watch?v=t_ispmWmdjY",
+            "difficulty": "beginner",
+            "duration": "4 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.6
+        },
+        {
+            "title": "The Odin Project - Ruby",
+            "provider": "The Odin Project",
+            "url": "https://www.theodinproject.com/paths/full-stack-ruby-on-rails/courses/ruby",
+            "difficulty": "beginner",
+            "duration": "self-paced",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.8
+        }
+    ],
+    "Ruby on Rails": [
+        {
+            "title": "Ruby on Rails Tutorial",
+            "provider": "The Odin Project",
+            "url": "https://www.theodinproject.com/paths/full-stack-ruby-on-rails/courses/ruby-on-rails",
+            "difficulty": "intermediate",
+            "duration": "self-paced",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.8
+        }
+    ],
+    "PHP": [
+        {
+            "title": "PHP Tutorial for Beginners",
+            "provider": "freeCodeCamp (YouTube)",
+            "url": "https://www.youtube.com/watch?v=OK_JCtrrv-c",
+            "difficulty": "beginner",
+            "duration": "5 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.6
+        }
+    ],
+    "Laravel": [
+        {
+            "title": "Laravel PHP Framework Tutorial",
+            "provider": "freeCodeCamp (YouTube)",
+            "url": "https://www.youtube.com/watch?v=ImtZ5yENzgE",
+            "difficulty": "intermediate",
+            "duration": "4 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.7
+        },
+        {
+            "title": "Laravel Documentation",
+            "provider": "Laravel",
+            "url": "https://laravel.com/docs",
+            "difficulty": "intermediate",
+            "duration": "self-paced",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.8
+        }
+    ],
+    "Computer Vision": [
+        {
+            "title": "Computer Vision Basics",
+            "provider": "Kaggle",
+            "url": "https://www.kaggle.com/learn/computer-vision",
+            "difficulty": "intermediate",
+            "duration": "4 hours",
+            "cost": "free",
+            "certificate": true,
+            "rating": 4.6
+        },
+        {
+            "title": "OpenCV Python Tutorial",
+            "provider": "freeCodeCamp (YouTube)",
+            "url": "https://www.youtube.com/watch?v=oXlwWbU8l2o",
+            "difficulty": "intermediate",
+            "duration": "4 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.7
+        }
+    ],
+    "Financial Analysis": [
+        {
+            "title": "Financial Markets",
+            "provider": "Yale (Coursera)",
+            "url": "https://www.coursera.org/learn/financial-markets-global",
+            "difficulty": "beginner",
+            "duration": "33 hours",
+            "cost": "free to audit",
+            "certificate": true,
+            "rating": 4.8
+        }
+    ],
+    "Product Management": [
+        {
+            "title": "Digital Product Management",
+            "provider": "University of Virginia (Coursera)",
+            "url": "https://www.coursera.org/specializations/uva-darden-digital-product-management",
+            "difficulty": "intermediate",
+            "duration": "4 months",
+            "cost": "free to audit",
+            "certificate": true,
+            "rating": 4.7
+        }
+    ],
+    "Sales": [
+        {
+            "title": "Sales Training: Techniques for a Human-Centric Sales Process",
+            "provider": "HubSpot Academy",
+            "url": "https://academy.hubspot.com/courses/inbound-sales",
+            "difficulty": "beginner",
+            "duration": "3 hours",
+            "cost": "free",
+            "certificate": true,
+            "rating": 4.6
+        }
+    ],
+    "Networking": [
+        {
+            "title": "Computer Networking Full Course",
+            "provider": "freeCodeCamp (YouTube)",
+            "url": "https://www.youtube.com/watch?v=qiQR5rTSshw",
+            "difficulty": "beginner",
+            "duration": "9 hours",
+            "cost": "free",
+            "certificate": false,
+            "rating": 4.7
+        },
+        {
+            "title": "CCNA Certification Prep",
+            "provider": "Cisco Networking Academy",
+            "url": "https://www.netacad.com/courses/networking",
+            "difficulty": "intermediate",
+            "duration": "70 hours",
+            "cost": "free",
+            "certificate": true,
+            "rating": 4.8
+        }
+    ]
+}
