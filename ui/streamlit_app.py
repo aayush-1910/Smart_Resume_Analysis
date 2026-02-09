@@ -454,11 +454,23 @@ def display_results(result: dict):
     
     with act_col1:
         if st.button("GET IMPROVEMENT PLAN ➔", use_container_width=True, key="btn_improve"):
-            show_improvement_suggestions(resume, match)
+            st.session_state['show_improvement'] = True
+            st.session_state['show_learning'] = False
             
     with act_col2:
         if st.button("VIEW LEARNING RESOURCES ➔", use_container_width=True, key="btn_learn"):
-            show_learning_recommendations(match.get('missing_skills', []))
+            st.session_state['show_learning'] = True
+            st.session_state['show_improvement'] = False
+    
+    # Display improvement suggestions if toggled
+    if st.session_state.get('show_improvement', False):
+        st.markdown("---")
+        show_improvement_suggestions(resume, match)
+    
+    # Display learning recommendations if toggled
+    if st.session_state.get('show_learning', False):
+        st.markdown("---")
+        show_learning_recommendations(match.get('missing_skills', []))
 
 
 def show_improvement_suggestions(resume: dict, match: dict):

@@ -142,6 +142,7 @@ class ScreeningPipeline:
             resume_name = resume.get('candidate', {}).get('name', 'Unknown')
             resume_vector = resume.get('vector_representation', [])
             resume_skills = resume.get('skills', [])
+            resume_text = resume.get('raw_text', '')
             if resume_skills and isinstance(resume_skills[0], dict):
                 resume_skill_names = [s.get('skill_name', '') for s in resume_skills]
             else:
@@ -151,6 +152,7 @@ class ScreeningPipeline:
             resume_name = resume.name
             resume_vector = resume.vector_representation
             resume_skill_names = resume.get_skill_names()
+            resume_text = resume.extracted_text
             resume_id = resume.resume_id
         
         if isinstance(job, dict):
@@ -168,18 +170,21 @@ class ScreeningPipeline:
                 job_id = processed_job.job_id
         else:
             job_title = job.title
+            job_text = job.description
             job_vector = job.vector_representation
             required_skills = job.required_skills
             job_id = job.job_id
         
         logger.info(f"Matching resume to job: {resume_name} -> {job_title}")
         
-        # Calculate match score
+        # Calculate match score (with raw text for TF-IDF fallback)
         result = calculate_match_score(
             resume_vector=resume_vector,
             job_vector=job_vector,
             resume_skills=resume_skill_names,
-            required_skills=required_skills
+            required_skills=required_skills,
+            resume_text=resume_text,
+            job_text=job_text
         )
         
         # Add IDs

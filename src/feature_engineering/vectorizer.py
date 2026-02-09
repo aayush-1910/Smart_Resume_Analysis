@@ -103,7 +103,7 @@ def create_spacy_vector(text: str) -> np.ndarray:
 def create_simple_tfidf_vector(text: str) -> np.ndarray:
     """
     Create a simple TF-IDF-based vector when spaCy is unavailable.
-    Uses sklearn's TfidfVectorizer with a fixed vocabulary.
+    Uses sklearn's TfidfVectorizer with a fixed vocabulary based on common skills/terms.
     
     Args:
         text: Document text
@@ -116,32 +116,67 @@ def create_simple_tfidf_vector(text: str) -> np.ndarray:
         return np.zeros(VECTOR_DIMENSIONALITY)
     
     from sklearn.feature_extraction.text import TfidfVectorizer
+    from sklearn.feature_extraction.text import HashingVectorizer
     
-    # Create a simple vectorizer with limited features
-    vectorizer = TfidfVectorizer(
-        max_features=VECTOR_DIMENSIONALITY,
+    # Use HashingVectorizer for consistent hashing across documents
+    # This allows meaningful comparison between separately vectorized documents
+    vectorizer = HashingVectorizer(
+        n_features=VECTOR_DIMENSIONALITY,
         stop_words='english',
         ngram_range=(1, 2),
-        lowercase=True
+        lowercase=True,
+        norm='l2'  # L2 normalization for cosine similarity
     )
     
-    # Fit and transform on the single document
-    # Note: This is not ideal but works for single-document scenarios
     try:
-        vector = vectorizer.fit_transform([text]).toarray()[0]
-        
-        # Ensure correct dimensionality
-        if vector.shape[0] < VECTOR_DIMENSIONALITY:
-            # Pad with zeros
-            vector = np.pad(vector, (0, VECTOR_DIMENSIONALITY - vector.shape[0]))
-        elif vector.shape[0] > VECTOR_DIMENSIONALITY:
-            # Truncate
-            vector = vector[:VECTOR_DIMENSIONALITY]
-            
+        vector = vectorizer.transform([text]).toarray()[0]
         return vector
     except Exception as e:
         logger.error(f"Error in TF-IDF vectorization: {e}")
         return np.zeros(VECTOR_DIMENSIONALITY)
+
+
+def compute_tfidf_similarity(text1: str, text2: str) -> float:
+    """
+    Compute TF-IDF cosine similarity between two texts.
+    This is more accurate than comparing separately vectorized documents.
+    
+    Args:
+        text1: First document text
+        text2: Second document text
+        
+    Returns:
+        Cosine similarity score between 0.0 and 1.0
+    """
+    if not SKLEARN_AVAILABLE:
+        logger.error("sklearn not available for similarity computation")
+        return 0.0
+    
+    if not text1 or not text2:
+        return 0.0
+    
+    from sklearn.feature_extraction.text import TfidfVectorizer
+    
+    # Create vectorizer and fit on both documents together
+    vectorizer = TfidfVectorizer(
+        stop_words='english',
+        ngram_range=(1, 2),
+        lowercase=True,
+        max_features=1000  # Limit features for speed
+    )
+    
+    try:
+        # Fit and transform both documents together
+        tfidf_matrix = vectorizer.fit_transform([text1, text2])
+        
+        # Compute cosine similarity between the two vectors
+        from sklearn.metrics.pairwise import cosine_similarity
+        similarity = cosine_similarity(tfidf_matrix[0:1], tfidf_matrix[1:2])[0][0]
+        
+        return max(0.0, min(1.0, float(similarity)))
+    except Exception as e:
+        logger.error(f"Error computing TF-IDF similarity: {e}")
+        return 0.0
 
 
 def calculate_cosine_similarity(vec1: np.ndarray, vec2: np.ndarray) -> float:

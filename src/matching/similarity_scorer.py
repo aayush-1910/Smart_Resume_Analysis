@@ -19,7 +19,9 @@ def calculate_match_score(
     job_vector: np.ndarray,
     resume_skills: List[str],
     required_skills: List[Dict],
-    weights: Optional[Dict] = None
+    weights: Optional[Dict] = None,
+    resume_text: Optional[str] = None,
+    job_text: Optional[str] = None
 ) -> Dict[str, Any]:
     """
     Calculate match score between resume and job description.
@@ -30,6 +32,8 @@ def calculate_match_score(
         resume_skills: List of skill names from resume
         required_skills: List of dicts with 'skill_name' and 'importance'
         weights: Optional custom weights for scoring
+        resume_text: Optional raw resume text for TF-IDF fallback
+        job_text: Optional raw job text for TF-IDF fallback
         
     Returns:
         Match result dictionary following MatchResult schema
@@ -44,6 +48,18 @@ def calculate_match_score(
     
     # Calculate semantic similarity
     semantic_similarity = calculate_cosine_similarity(resume_vector, job_vector)
+    
+    # If semantic similarity is very low and we have raw text, use TF-IDF similarity
+    # This helps when spaCy model is unavailable and HashingVectorizer gives poor results
+    if semantic_similarity < 0.05 and resume_text and job_text:
+        try:
+            from src.feature_engineering.vectorizer import compute_tfidf_similarity
+            tfidf_sim = compute_tfidf_similarity(resume_text, job_text)
+            if tfidf_sim > semantic_similarity:
+                logger.info(f"Using TF-IDF similarity ({tfidf_sim:.3f}) instead of vector similarity ({semantic_similarity:.3f})")
+                semantic_similarity = tfidf_sim
+        except Exception as e:
+            logger.warning(f"TF-IDF fallback failed: {e}")
     
     # Calculate skill match score
     skill_match, matched_skills, missing_skills = calculate_skill_match(
