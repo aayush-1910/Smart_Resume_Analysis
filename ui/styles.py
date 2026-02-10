@@ -528,31 +528,30 @@ def render_score_ring(score_pct: int, color: str, size: int = 180, stroke: int =
     radius = (size - stroke) / 2
     circumference = 2 * 3.14159 * radius
     offset = circumference - (score_pct / 100) * circumference
+    cx = size / 2
+    cy = size / 2
 
-    return f"""
-    <div class="score-ring-container" style="width:{size}px; height:{size}px;">
-        <svg width="{size}" height="{size}" viewBox="0 0 {size} {size}">
-            <circle cx="{size/2}" cy="{size/2}" r="{radius}"
-                    fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="{stroke}"/>
-            <circle cx="{size/2}" cy="{size/2}" r="{radius}"
-                    fill="none" stroke="{color}" stroke-width="{stroke}"
-                    stroke-linecap="round"
-                    stroke-dasharray="{circumference}"
-                    stroke-dashoffset="{offset}"
-                    style="transition: stroke-dashoffset 1s ease 0.2s;"/>
-        </svg>
-        <div class="score-number" style="color: {color};">{score_pct}%</div>
-    </div>
-    """
+    return (
+        f'<div style="position:relative; width:{size}px; height:{size}px; margin:0 auto;">'
+        f'<svg width="{size}" height="{size}" viewBox="0 0 {size} {size}" style="transform:rotate(-90deg);">'
+        f'<circle cx="{cx}" cy="{cy}" r="{radius}" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="{stroke}"/>'
+        f'<circle cx="{cx}" cy="{cy}" r="{radius}" fill="none" stroke="{color}" stroke-width="{stroke}" '
+        f'stroke-linecap="round" stroke-dasharray="{circumference}" stroke-dashoffset="{offset}" '
+        f'style="transition: stroke-dashoffset 1s ease 0.2s;"/>'
+        f'</svg>'
+        f'<div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); '
+        f'font-family:JetBrains Mono,monospace; font-size:{int(size*0.27)}px; font-weight:700; color:{color};">{score_pct}%</div>'
+        f'</div>'
+    )
 
 
 def render_progress_bar(value_pct: int, color: str = "var(--accent)", delay: str = "0.4s"):
     """Generate animated progress bar HTML."""
-    return f"""
-    <div class="progress-track">
-        <div class="progress-fill" style="width: {value_pct}%; background: {color}; animation-delay: {delay};"></div>
-    </div>
-    """
+    return (
+        f'<div class="progress-track">'
+        f'<div class="progress-fill" style="width:{value_pct}%; background:{color}; animation-delay:{delay};"></div>'
+        f'</div>'
+    )
 
 
 def get_score_color(score: float) -> str:

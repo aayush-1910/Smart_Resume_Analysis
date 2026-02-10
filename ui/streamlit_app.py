@@ -212,15 +212,14 @@ def display_results(result: dict):
     with hero_col1:
         # SVG Score Ring
         ring_html = render_score_ring(score_pct, score_color)
-        st.markdown(f"""
-        <div class="glass-card" style="text-align: center;">
-            {ring_html}
-            <div class="score-label">Overall Match</div>
-            <div style="margin-top: 12px;">
-                <span class="status-badge {status_class}">{status_text}</span>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
+        hero_html = (
+            '<div class="glass-card" style="text-align:center;">'
+            + ring_html
+            + '<div style="font-size:13px; color:#94A3B8; text-transform:uppercase; letter-spacing:1.5px; margin-top:12px;">Overall Match</div>'
+            + f'<div style="margin-top:12px;"><span class="status-badge {status_class}">{status_text}</span></div>'
+            + '</div>'
+        )
+        st.markdown(hero_html, unsafe_allow_html=True)
 
     with hero_col2:
         # Subscore Cards
@@ -229,50 +228,49 @@ def display_results(result: dict):
         with sub_col1:
             skill_color = get_score_hex(skill_score)
             bar_html = render_progress_bar(skill_pct, skill_color, "0.5s")
-            st.markdown(f"""
-            <div class="metric-card">
-                <span class="section-label">Skill Match</span>
-                <div style="font-family: 'JetBrains Mono'; font-size: 36px; font-weight: 700; color: {skill_color};
-                     margin: 8px 0 4px 0; animation: countUp 0.5s ease both; animation-delay: 0.3s;">
-                    {skill_pct}%
-                </div>
-                {bar_html}
-            </div>
-            """, unsafe_allow_html=True)
+            card1 = (
+                '<div class="metric-card">'
+                '<span class="section-label">Skill Match</span>'
+                f'<div style="font-family:JetBrains Mono,monospace; font-size:36px; font-weight:700; color:{skill_color}; '
+                f'margin:8px 0 4px 0;">{skill_pct}%</div>'
+                + bar_html
+                + '</div>'
+            )
+            st.markdown(card1, unsafe_allow_html=True)
 
         with sub_col2:
             sem_color = get_score_hex(semantic_score)
             bar_html2 = render_progress_bar(semantic_pct, sem_color, "0.7s")
-            st.markdown(f"""
-            <div class="metric-card">
-                <span class="section-label">Semantic Similarity</span>
-                <div style="font-family: 'JetBrains Mono'; font-size: 36px; font-weight: 700; color: {sem_color};
-                     margin: 8px 0 4px 0; animation: countUp 0.5s ease both; animation-delay: 0.5s;">
-                    {semantic_pct}%
-                </div>
-                {bar_html2}
-            </div>
-            """, unsafe_allow_html=True)
+            card2 = (
+                '<div class="metric-card">'
+                '<span class="section-label">Semantic Similarity</span>'
+                f'<div style="font-family:JetBrains Mono,monospace; font-size:36px; font-weight:700; color:{sem_color}; '
+                f'margin:8px 0 4px 0;">{semantic_pct}%</div>'
+                + bar_html2
+                + '</div>'
+            )
+            st.markdown(card2, unsafe_allow_html=True)
 
         # Candidate Info
         candidate = resume.get('candidate', {})
         cand_name = candidate.get('name', 'Unknown')
         cand_email = candidate.get('email', 'N/A')
 
-        st.markdown(f"""
-        <div style="margin-top: 16px; padding: 16px 20px; background: rgba(255,255,255,0.02);
-                    border-radius: 12px; border: 1px solid rgba(148,163,184,0.08);
-                    display: flex; gap: 32px; align-items: center; animation: fadeInUp 0.5s ease both; animation-delay: 0.3s;">
-            <div>
-                <span class="section-label" style="margin-bottom: 4px;">Candidate</span>
-                <div style="font-weight: 600; font-size: 15px; color: #F1F5F9;">{cand_name}</div>
-            </div>
-            <div>
-                <span class="section-label" style="margin-bottom: 4px;">Email</span>
-                <div style="font-family: 'JetBrains Mono'; font-size: 13px; color: #94A3B8;">{cand_email}</div>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
+        cand_html = (
+            '<div style="margin-top:16px; padding:16px 20px; background:rgba(255,255,255,0.02); '
+            'border-radius:12px; border:1px solid rgba(148,163,184,0.08); '
+            'display:flex; gap:32px; align-items:center;">'
+            '<div>'
+            '<span class="section-label" style="margin-bottom:4px;">Candidate</span>'
+            f'<div style="font-weight:600; font-size:15px; color:#F1F5F9;">{cand_name}</div>'
+            '</div>'
+            '<div>'
+            '<span class="section-label" style="margin-bottom:4px;">Email</span>'
+            f'<div style="font-family:JetBrains Mono,monospace; font-size:13px; color:#94A3B8;">{cand_email}</div>'
+            '</div>'
+            '</div>'
+        )
+        st.markdown(cand_html, unsafe_allow_html=True)
 
     # -------------------------------------------------------------------------
     # SKILLS ANALYSIS
