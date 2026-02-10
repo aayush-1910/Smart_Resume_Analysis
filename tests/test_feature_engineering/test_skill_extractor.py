@@ -6,7 +6,11 @@ def test_skill_extractor():
     """Test skill extraction."""
     from src.feature_engineering.skill_extractor import extract_skills
     
-    text = "Experienced Python developer with React and Machine Learning expertise."
+    text = (
+        "Experienced Python developer with React and Machine Learning expertise. "
+        "Building scalable web applications and AI models for enterprise clients. "
+        "Passionate about clean code and modern software architecture."
+    )
     skills = extract_skills(text)
     
     skill_names = [s['skill_name'] for s in skills]

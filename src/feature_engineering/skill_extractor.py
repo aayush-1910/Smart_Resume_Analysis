@@ -1,6 +1,7 @@
 """
 Skill Extractor Module
 Identifies and extracts skills from resume text using NLP.
+Uses skill_synonyms.json to normalize abbreviations and variants.
 """
 import json
 import re
@@ -23,6 +24,12 @@ logger = get_logger("skill_extractor")
 # Global spaCy model reference
 _nlp = None
 
+# Global synonym cache
+_synonyms = None
+
+# Path to synonyms file
+SKILL_SYNONYMS_PATH = SKILLS_TAXONOMY_PATH.parent / "skill_synonyms.json"
+
 
 def load_spacy_model():
     """Load spaCy model if available, return None if not."""
@@ -40,6 +47,70 @@ def load_spacy_model():
             _nlp = False  # Mark as unavailable
             return None
     return _nlp if _nlp is not False else None
+
+
+def load_skill_synonyms() -> Dict[str, str]:
+    """Load skill synonyms mapping from JSON file.
+    
+    Returns:
+        Dictionary mapping abbreviation/variant -> canonical skill name
+    """
+    global _synonyms
+    if _synonyms is not None:
+        return _synonyms
+    
+    if SKILL_SYNONYMS_PATH.exists():
+        try:
+            with open(SKILL_SYNONYMS_PATH, 'r', encoding='utf-8') as f:
+                _synonyms = json.load(f)
+            logger.info(f"Loaded {len(_synonyms)} skill synonyms")
+            return _synonyms
+        except Exception as e:
+            logger.warning(f"Failed to load skill synonyms: {e}")
+    
+    _synonyms = {}
+    return _synonyms
+
+
+def normalize_text_with_synonyms(text: str, synonyms: Optional[Dict[str, str]] = None) -> str:
+    """Expand abbreviations and variants in text using synonym mappings.
+    
+    This replaces occurrences like 'JS', 'K8s', 'ReactJS' with their
+    canonical forms ('JavaScript', 'Kubernetes', 'React') so they match
+    the skills taxonomy.
+    
+    Args:
+        text: Original text
+        synonyms: Synonym mapping dict (loaded automatically if None)
+        
+    Returns:
+        Text with synonyms expanded (original text + appended canonical names)
+    """
+    if synonyms is None:
+        synonyms = load_skill_synonyms()
+    
+    if not synonyms:
+        return text
+    
+    # Build a list of canonical skills found via synonyms
+    found_canonical = []
+    text_lower = text.lower()
+    
+    # Sort by length descending so longer patterns match first
+    # (e.g. "React.js" before "React")
+    sorted_synonyms = sorted(synonyms.items(), key=lambda x: len(x[0]), reverse=True)
+    
+    for variant, canonical in sorted_synonyms:
+        pattern = rf'\b{re.escape(variant)}\b'
+        if re.search(pattern, text_lower, re.IGNORECASE):
+            found_canonical.append(canonical)
+    
+    # Append canonical names to the text so regular taxonomy matching picks them up
+    if found_canonical:
+        unique_canonical = list(dict.fromkeys(found_canonical))  # preserve order, dedup
+        text = text + "\n" + " ".join(unique_canonical)
+    
+    return text
 
 
 def load_skills_taxonomy() -> Dict[str, List[str]]:
@@ -99,8 +170,12 @@ def extract_skills(
     if skill_taxonomy is None:
         skill_taxonomy = load_skills_taxonomy()
     
+    # Normalize text with synonyms before matching
+    # This expands abbreviations like 'JS' -> 'JavaScript', 'K8s' -> 'Kubernetes'
+    normalized_text = normalize_text_with_synonyms(text)
+    
     extracted_skills = []
-    text_lower = text.lower()
+    text_lower = normalized_text.lower()
     
     # Match skills from taxonomy
     for category, skills in skill_taxonomy.items():

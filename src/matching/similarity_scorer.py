@@ -1,6 +1,7 @@
 """
 Similarity Scorer Module
 Calculates match scores between resumes and job descriptions.
+Uses synonym normalization for improved skill matching accuracy.
 """
 import uuid
 from datetime import datetime
@@ -10,6 +11,7 @@ import numpy as np
 from config.settings import SCORING_WEIGHTS, SKILL_IMPORTANCE_WEIGHTS, MATCH_THRESHOLDS
 from config.logging_config import get_logger
 from src.feature_engineering.vectorizer import calculate_cosine_similarity
+from src.feature_engineering.skill_extractor import load_skill_synonyms
 
 logger = get_logger("similarity_scorer")
 
@@ -49,17 +51,18 @@ def calculate_match_score(
     # Calculate semantic similarity
     semantic_similarity = calculate_cosine_similarity(resume_vector, job_vector)
     
-    # If semantic similarity is very low and we have raw text, use TF-IDF similarity
-    # This helps when spaCy model is unavailable and HashingVectorizer gives poor results
-    if semantic_similarity < 0.05 and resume_text and job_text:
+    # Use TF-IDF similarity as a blended signal when available
+    # This catches cases where spaCy vectors underperform (short text, missing model)
+    if resume_text and job_text:
         try:
             from src.feature_engineering.vectorizer import compute_tfidf_similarity
             tfidf_sim = compute_tfidf_similarity(resume_text, job_text)
+            # Use the better of the two signals
             if tfidf_sim > semantic_similarity:
-                logger.info(f"Using TF-IDF similarity ({tfidf_sim:.3f}) instead of vector similarity ({semantic_similarity:.3f})")
-                semantic_similarity = tfidf_sim
+                logger.info(f"TF-IDF similarity ({tfidf_sim:.3f}) > vector similarity ({semantic_similarity:.3f}), using TF-IDF")
+                semantic_similarity = max(semantic_similarity, tfidf_sim)
         except Exception as e:
-            logger.warning(f"TF-IDF fallback failed: {e}")
+            logger.warning(f"TF-IDF similarity computation failed: {e}")
     
     # Calculate skill match score
     skill_match, matched_skills, missing_skills = calculate_skill_match(
@@ -112,7 +115,22 @@ def calculate_skill_match(
         # No required skills - use semantic similarity only
         return 1.0, [], []
     
-    resume_skills_lower = [s.lower() for s in resume_skills]
+    # Load synonyms for normalized matching
+    synonyms = load_skill_synonyms()
+    
+    # Build a reverse map: canonical_lower -> canonical
+    # and also normalize resume skills through synonyms
+    def normalize_skill(skill_name: str) -> str:
+        """Normalize a skill name through synonym mapping."""
+        # Check if this skill is a synonym for something else
+        canonical = synonyms.get(skill_name, skill_name)
+        # Also check case-insensitive
+        for variant, canon in synonyms.items():
+            if variant.lower() == skill_name.lower():
+                return canon.lower()
+        return canonical.lower()
+    
+    resume_skills_normalized = {normalize_skill(s): s for s in resume_skills}
     
     matched_skills = []
     missing_skills = []
@@ -126,8 +144,13 @@ def calculate_skill_match(
         
         total_weight += weight
         
-        # Check if resume has this skill
-        if skill_name.lower() in resume_skills_lower:
+        # Check if resume has this skill (with synonym normalization)
+        req_normalized = normalize_skill(skill_name)
+        if req_normalized in resume_skills_normalized:
+            matched_skills.append(skill_name)
+            weighted_sum += weight
+        elif skill_name.lower() in [s.lower() for s in resume_skills]:
+            # Direct case-insensitive match as fallback
             matched_skills.append(skill_name)
             weighted_sum += weight
         else:

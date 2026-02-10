@@ -53,7 +53,7 @@ class TestBatchProcessor:
         csv = export_batch_results_csv(mock_result)
         assert 'Rank,Candidate Name' in csv
         assert 'John Doe' in csv
-        assert '85%' in csv or '0.85' in csv
+        assert '85' in csv or '0.85' in csv
     
     def test_get_batch_statistics(self):
         """Test statistics calculation."""

@@ -11,4 +11,5 @@ showSidebarNavigation = false
 [server]
 headless = true
 enableCORS = false
-enableXsrfProtection = false
+enableXsrfProtection = true
+maxUploadSize = 5

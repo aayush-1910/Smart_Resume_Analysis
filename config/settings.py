@@ -1,9 +1,14 @@
 """
 AI Resume Screener - Configuration Settings
 Contains all paths, thresholds, and model parameters.
+Reads from environment variables with safe defaults.
 """
 import os
 from pathlib import Path
+from dotenv import load_dotenv
+
+# Load .env file if present
+load_dotenv()
 
 # Base paths
 BASE_DIR = Path(__file__).parent.parent
@@ -24,7 +29,7 @@ PRETRAINED_DIR = MODELS_DIR / "pretrained"
 SKILLS_TAXONOMY_PATH = DATASETS_DIR / "skills_taxonomy.json"
 
 # PDF Processing Constraints
-MAX_FILE_SIZE_MB = 5
+MAX_FILE_SIZE_MB = int(os.getenv("MAX_FILE_SIZE_MB", "5"))
 MAX_FILE_SIZE_BYTES = MAX_FILE_SIZE_MB * 1024 * 1024
 MAX_RESUME_PAGES = 10
 MAX_EXTRACTED_TEXT_LENGTH = 50000
@@ -36,7 +41,7 @@ TEXT_ENCODING = "utf-8"
 MIN_TEXT_LENGTH = 100
 
 # NLP Settings
-SPACY_MODEL = "en_core_web_md"
+SPACY_MODEL = os.getenv("SPACY_MODEL", "en_core_web_md")
 VECTOR_DIMENSIONALITY = 300
 MIN_SKILL_CONFIDENCE = 0.7
 
@@ -61,14 +66,14 @@ MATCH_THRESHOLDS = {
     "no-match": 0.0
 }
 
-# API Settings
-API_HOST = "0.0.0.0"
-API_PORT = 5000
-DEBUG_MODE = True
+# API Settings — read from env for Docker/production overrides
+API_HOST = os.getenv("API_HOST", "0.0.0.0")
+API_PORT = int(os.getenv("API_PORT", "5000"))
+DEBUG_MODE = os.getenv("DEBUG_MODE", "false").lower() in ("true", "1", "yes")
 
 # Streamlit Settings
-STREAMLIT_HOST = "localhost"
-STREAMLIT_PORT = 8501
+STREAMLIT_HOST = os.getenv("STREAMLIT_HOST", "localhost")
+STREAMLIT_PORT = int(os.getenv("STREAMLIT_PORT", "8501"))
 
 # Memory limits
 MIN_RAM_GB = 4

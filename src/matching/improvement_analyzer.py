@@ -30,7 +30,14 @@ def generate_improvement_suggestions(
     # Extract data
     resume_text = resume_data.get('raw_text', '')
     candidate = resume_data.get('candidate', {})
-    resume_skills = set(s.lower() for s in resume_data.get('skills', []))
+    # Skills can be strings or dicts with 'skill_name' key
+    raw_skills = resume_data.get('skills', [])
+    resume_skills = set()
+    for s in raw_skills:
+        if isinstance(s, dict):
+            resume_skills.add(s.get('skill_name', '').lower())
+        else:
+            resume_skills.add(str(s).lower())
     
     matched_skills = match_result.get('matched_skills', [])
     missing_skills = match_result.get('missing_skills', [])

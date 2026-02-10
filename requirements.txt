@@ -16,6 +16,10 @@ streamlit>=1.29.0
 
 # API Framework
 flask>=3.0.0
+flask-cors>=4.0.0
+
+# Production WSGI Server
+gunicorn>=21.2.0
 
 # Configuration
 pyyaml>=6.0.1

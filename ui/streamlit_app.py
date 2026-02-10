@@ -132,21 +132,32 @@ def render_single_job_page():
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # Analyze button
-    if st.button("Run Analysis", type="primary", use_container_width=True, key="single_analyze"):
+    # Analyze Button
+    if st.button("RUN ANALYSIS ➔", type="primary", use_container_width=True, key="single_analyze"):
         if not uploaded_file:
             st.error("Please upload a resume first.")
         elif not job_description:
             st.error("Please provide a job description.")
+        elif len(job_description.strip()) < 30:
+            st.error("Job description is too short. Please provide at least 30 characters.")
         else:
             with st.spinner("Analyzing match..."):
                 try:
+                    # Simulate slight delay for effect
                     time.sleep(0.5)
                     result = process_screening(uploaded_file, job_title, job_description)
                     st.session_state['last_result'] = result
-                    display_results(result)
+                    st.session_state['last_analyzed_file'] = uploaded_file.name
                 except Exception as e:
-                    st.error(f"Analysis failed: {str(e)}")
+                    st.error(f"Analysis Failed: {str(e)}")
+                    st.session_state.pop('last_result', None)
+    
+    # Display results if available (persists across reruns)
+    if 'last_result' in st.session_state:
+        analyzed_name = st.session_state.get('last_analyzed_file', '')
+        if analyzed_name:
+            st.caption(f"📋 Showing results for: **{analyzed_name}**")
+        display_results(st.session_state['last_result'])
 
 
 def render_multi_job_page():
@@ -162,18 +173,26 @@ def render_batch_processing_page():
 
 
 def process_screening(uploaded_file, job_title: str, job_description: str):
-    """Process the screening request."""
+    """Process the screening request with error handling."""
+    # Validate file size (5 MB limit)
+    if uploaded_file.size > 5 * 1024 * 1024:
+        raise ValueError(f"File too large ({uploaded_file.size / (1024*1024):.1f} MB). Maximum is 5 MB.")
+    
     with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp:
         tmp.write(uploaded_file.getbuffer())
         tmp_path = tmp.name
-
+    
     try:
         from pipeline.screening_pipeline import ScreeningPipeline
+        
         pipeline = ScreeningPipeline()
         result = pipeline.screen_resume(tmp_path, job_description, job_title or "Job Position")
         return result
+    except Exception as e:
+        raise RuntimeError(f"Pipeline error: {str(e)}")
     finally:
-        os.unlink(tmp_path)
+        if os.path.exists(tmp_path):
+            os.unlink(tmp_path)
 
 
 def display_results(result: dict):
@@ -334,39 +353,63 @@ def display_results(result: dict):
 
     if st.session_state.get('show_improvement', False):
         st.markdown("---")
-        show_improvement_suggestions(resume, match)
+        try:
+            show_improvement_suggestions(resume, match)
+        except Exception as e:
+            st.error(f"Could not generate improvement plan: {str(e)}")
+            st.code(str(e)) # Show details for debugging
 
     if st.session_state.get('show_learning', False):
         st.markdown("---")
-        show_learning_recommendations(match.get('missing_skills', []))
+        try:
+            show_learning_recommendations(match.get('missing_skills', []))
+        except Exception as e:
+            st.error(f"Could not load learning resources: {str(e)}")
+            st.code(str(e))
 
 
 def show_improvement_suggestions(resume: dict, match: dict):
     """Display improvement suggestions."""
-    from src.matching.improvement_analyzer import generate_improvement_suggestions
-    from ui.components.improvement_suggestions import render_improvement_suggestions
+    try:
+        from src.matching.improvement_analyzer import generate_improvement_suggestions
+        from ui.components.improvement_suggestions import render_improvement_suggestions
+    except ImportError as e:
+        st.error(f"Module import error: {e}")
+        return
 
-    job_data = {'description': st.session_state.get('single_job_desc', '')}
-    suggestions = generate_improvement_suggestions(resume, job_data, match)
-    render_improvement_suggestions(suggestions)
+    job_desc = st.session_state.get('single_job_desc', '')
+    # Fallback to description from previous analysis if text area is cleared
+    if not job_desc and 'job_description' in match:
+        job_desc = match['job_description']
+        
+    job_data = {'description': job_desc}
+    
+    with st.spinner("Analyzing resume for improvements..."):
+        suggestions = generate_improvement_suggestions(resume, job_data, match)
+        render_improvement_suggestions(suggestions)
 
 
 def show_learning_recommendations(missing_skills: list):
     """Display learning recommendations."""
-    from src.recommendations.learning_recommender import generate_learning_recommendations
-    from ui.components.learning_recommendations import render_learning_recommendations, render_learning_milestones
-
-    if not missing_skills:
-        st.info("No missing skills identified.")
+    try:
+        from src.recommendations.learning_recommender import generate_learning_recommendations
+        from ui.components.learning_recommendations import render_learning_recommendations, render_learning_milestones
+    except ImportError as e:
+        st.error(f"Module import error: {e}")
         return
 
-    recommendations = generate_learning_recommendations(
-        missing_skills=missing_skills,
-        max_skills=5,
-        difficulty_preference="beginner"
-    )
-    render_learning_recommendations(recommendations)
-    render_learning_milestones(recommendations)
+    if not missing_skills:
+        st.info("No missing skills identified! Great match.")
+        return
+
+    with st.spinner("Curating learning resources..."):
+        recommendations = generate_learning_recommendations(
+            missing_skills=missing_skills,
+            max_skills=5,
+            difficulty_preference="beginner"
+        )
+        render_learning_recommendations(recommendations)
+        render_learning_milestones(recommendations)
 
 
 if __name__ == "__main__":
